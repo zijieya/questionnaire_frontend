@@ -26,6 +26,33 @@ export default [
     component: () => import('@/view/login/login.vue')
   },
   {
+    path: '/register',
+    name: 'register',
+    meta: {
+      title: '注册',
+      hideInMenu: true
+    },
+    component: () => import('@/view/login/register.vue')
+  },
+  {
+    path: '/sendmail',
+    name: 'sendmail',
+    meta: {
+      title: '邮箱验证',
+      hideInMenu: true
+    },
+    component: () => import('@/view/login/sendmail.vue')
+  },
+  {
+    path: '/resetpassword',
+    name: 'resetpassword',
+    meta: {
+      title: '重置密码',
+      hideInMenu: true
+    },
+    component: () => import('@/view/login/resetpassword.vue')
+  },
+  {
     path: '/',
     name: '_home',
     redirect: '/home',
@@ -44,7 +71,7 @@ export default [
           notCache: true,
           icon: 'md-home'
         },
-        component: () => import('@/view/single-page/home')
+        component: () => import('@/view/servey/search.vue')
       }
     ]
   },
@@ -64,7 +91,7 @@ export default [
           icon: 'ios-book',
           title: '创建问卷'
         },
-        component: () => import('@/view/join-page.vue')
+        component: () => import('@/view/servey/create.vue')
       },
       {
         path: 'myservey',
@@ -72,7 +99,8 @@ export default [
         meta: {
           icon: 'ios-book',
           title: '我的问卷'
-        }
+        },
+        component: () => import('@/view/servey/myservey.vue')
       },
       {
         path: 'result',
@@ -80,7 +108,18 @@ export default [
         meta: {
           icon: 'ios-book',
           title: '问卷结果'
-        }
+        },
+        component: () => import('@/view/servey/serveyresult.vue')
+      },
+      {
+        path: 'myserveydetail',
+        name: '创建的问卷详情',
+        meta: {
+          icon: 'ios-book',
+          title: '创建的问卷详情',
+          hideInMenu: true
+        },
+        component: () => import('@/view/servey/myserveydetail.vue')
       }
     ]
   },
@@ -100,7 +139,7 @@ export default [
           icon: 'ios-hammer',
           title: '个人信息'
         },
-        component: () => import('@/view/join-page.vue')
+        component: () => import('@/view/user/info.vue')
       },
       {
         path: 'avatar',
@@ -108,7 +147,8 @@ export default [
         meta: {
           icon: 'ios-hammer',
           title: '头像设置'
-        }
+        },
+        component: () => import('@/view/user/avatar.vue')
       },
       {
         path: 'resetpassword',
@@ -116,7 +156,8 @@ export default [
         meta: {
           icon: 'ios-hammer',
           title: '重置密码'
-        }
+        },
+        component: () => import('@/view/user/resetpassword.vue')
       },
       {
         path: 'security',
@@ -124,7 +165,8 @@ export default [
         meta: {
           icon: 'ios-hammer',
           title: '账号安全'
-        }
+        },
+        component: () => import('@/view/user/security.vue')
       }
     ]
   },
