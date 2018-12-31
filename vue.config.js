@@ -37,6 +37,12 @@ module.exports = {
   // 设为false打包时不生成.map文件
   productionSourceMap: false,
   devServer: {
-    proxy: ''
+    proxy: {
+      '/api/': {
+        changeOrigin: true,
+        target: 'http://questionnairetestapi.jieblog.win', // 后台服务器的ip地址
+        pathRewrite: { '^/api/': '/' }
+      }
+    }
   }
 }

@@ -18,6 +18,7 @@
 <script>
 import LoginForm from '_c/login-form'
 import { mapActions } from 'vuex'
+import { login } from '@/api/common'
 export default {
   components: {
     LoginForm
@@ -27,12 +28,17 @@ export default {
       'handleLogin',
       'getUserInfo'
     ]),
-    handleSubmit ({ userName, password }) {
-      this.handleLogin({ userName, password }).then(res => {
-        this.getUserInfo().then(res => {
-          this.$router.push({
-            name: this.$config.homeName
-          })
+    handleSubmit ({ password, userName }) {
+      login({ password, userName }).then(res => {
+        this.successful = res.successful
+        this.then(res => {
+          if (this.successful === true) {
+            this.$router.push({
+              name: this.$config.homeName
+            })
+          } else {
+            console.log('登录失败')
+          }
         })
       })
     }
