@@ -28,18 +28,17 @@ export default {
       'handleLogin',
       'getUserInfo'
     ]),
-    handleSubmit ({ password, userName }) {
-      login({ password, userName }).then(res => {
+    handleSubmit ({ password, username }) {
+      login({ password, username }).then(res => {
         this.successful = res.successful
-        this.then(res => {
-          if (this.successful === true) {
-            this.$router.push({
-              name: this.$config.homeName
-            })
-          } else {
-            console.log('登录失败')
-          }
-        })
+        console.log(this.code)
+        if (this.successful === 200200) {
+          this.$router.push({
+            name: this.$config.homeName
+          })
+        } else {
+          console.log('登录失败')
+        }
       })
     }
   }

@@ -38,10 +38,10 @@ module.exports = {
   productionSourceMap: false,
   devServer: {
     proxy: {
-      '/api/': {
+      '/api': {
         changeOrigin: true,
-        target: 'http://questionnairetestapi.jieblog.win', // 后台服务器的ip地址
-        pathRewrite: { '^/api/': '/' }
+        target: 'http://questionnairetestapi.jieblog.win/', // 后台服务器的ip地址
+        pathRewrite: { '^/api': '' }
       }
     }
   }
