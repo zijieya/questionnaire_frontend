@@ -50,13 +50,13 @@ export const submitservey = ({ questionid, surveyserialid, answererserialId, rem
   })
 }
 
-export const login = ({ userName, password }) => {
+export const login = ({ password, username }) => {
   const data = {
-    userName,
+    username,
     password
   }
   return axios.request({
-    url: 'login',
+    url: '/api/login',
     data,
     method: 'post'
   })
@@ -64,7 +64,7 @@ export const login = ({ userName, password }) => {
 
 export const getUserInfo = (token) => {
   return axios.request({
-    url: 'get_info',
+    url: '/api/getinfo',
     params: {
       token
     },
