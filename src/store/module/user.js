@@ -81,7 +81,7 @@ export default {
           password,
           username
         }).then(res => {
-          const token = res.headers['authorization'].slice(7, -1)
+          const token = res.headers['authorization'].slice(7)
           console.log(token)
           commit('setToken', token)
           resolve()
@@ -110,6 +110,7 @@ export default {
     getUserInfo ({ state, commit }) {
       return new Promise((resolve, reject) => {
         try {
+          console.log('module中的token' + state.token)
           getUserInfo(state.token).then(res => {
             const data = res.data
             commit('setAvator', data.avator)
